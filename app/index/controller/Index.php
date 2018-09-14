@@ -32,7 +32,7 @@ class Index extends Controller
 		/**
 		 * 删除数据
 		 */
-		$this->db->where(['id'=>1])->delete();
+		$this->db->table('article')->where(['id'=>1])->delete();
 
 		/**
 		 * 修改数据
