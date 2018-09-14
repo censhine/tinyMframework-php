@@ -11,8 +11,10 @@ namespace core;
 
 class Controller extends Template
 {
+	public $db;
     public function __construct()
     {
+    	$this->db = Model::db();
 		date_default_timezone_set(config('DATE_DEFAULT_TIMEZONE_SET'));
         parent::__construct();
     }

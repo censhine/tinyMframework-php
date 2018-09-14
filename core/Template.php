@@ -38,13 +38,13 @@ class Template
     }
 
     /**
-     * 显示模版文件
+     * 渲染模板
      * @param $tpl 模版文件
      * @param bool $is_include 是否先编译后包含
      * @param string $uri 路径
      * @return void
      */
-    function display($tpl, $is_include = true, $uri = "")
+    function render($tpl, $is_include = true, $uri = "")
     {
         //解析模版变量
         extract($this->vars);
@@ -116,7 +116,7 @@ class Template
     {
         $filename = trim($data[1],'\'"');
         $filename = rtrim($filename, '.html');
-        $this->display($filename, true);
+        $this->render($filename, false);
         $cache = md5($filename).'.php';
         $cachePath = rtrim($this->cache_dir,'/').'/'.$cache;
         return '<?php include "'.$cachePath.'";?>';

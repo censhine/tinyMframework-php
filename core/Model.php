@@ -23,7 +23,6 @@ class Model
 
     private function __construct()
     {
-        //$config = include_once './config/config.php';
 		global $config;
         $this->db_host = $config['DB_HOST'];
         $this->db_username = $config['DB_USERNAME'];
@@ -321,7 +320,7 @@ class Model
         return join(',',$opt);
     }
 
-    protected function delete()
+    public function delete()
     {
         $sql = " DELETE FROM %TABLE_NAME% %WHERE% ";
 
@@ -343,6 +342,11 @@ class Model
 
         return false;
     }
+
+    public function getRow($table_name,$where){
+    	$row = self::db()->table($table_name)->where($where)->limit(1)->select();
+    	return empty($row)? []:$row[0];
+	}
 
     public function lastSql(){
     	return $this->sql;
