@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$title}</title>
+</head>
+<body>
+{include file="index/demo.html"}
+<h2>{$welcome}</h2>
+{if $welcome}
+<p>this is the if </p>
+{/if}
+<ul>
+    {foreach $list as $k=>$val}
+    <li>{$val['title']}-{$val['content']}-{$val['add_time']}</li>
+    {/foreach}
+</ul>
+<dt>
+    <dd>1111</dd>
+</dt>
+</body>
+</html>
