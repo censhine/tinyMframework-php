@@ -57,9 +57,9 @@ class Index extends Controller
 		/**
 		 * 获取单条数据
 		 */
-		$row = $this->db->getRow('article',['id'=>2]);
+		$row = $this->db->getRow('article',['id'=>2],'id desc');
 		var_dump($row);
-
+		
 		//传递模板变量
         $this->assign('title', 'hello,world!');
         $this->assign('welcome', generate_random_str());

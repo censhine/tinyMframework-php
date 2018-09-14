@@ -343,8 +343,8 @@ class Model
         return false;
     }
 
-    public function getRow($table_name,$where){
-    	$row = self::db()->table($table_name)->where($where)->limit(1)->select();
+    public function getRow($table_name,$where,$order){
+    	$row = self::db()->table($table_name)->where($where)->limit(1)->order($order)->select();
     	return empty($row)? []:$row[0];
 	}
 
